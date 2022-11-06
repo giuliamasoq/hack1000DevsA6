@@ -27,17 +27,18 @@ public class Hackathon {
 
                 String html = response.body().toString();
 
+                /* Para reduzir a string de HTML */
+				
+                String idTitulo = "h3 class=\"text-24 line-height-30\">";
+				int posicaoInicial = html.indexOf(idTitulo);
+				int tamanho = html.length();
+				html = html.substring(posicaoInicial,tamanho);
+
+
 		       /* Para remover as etiquetas novas do código */
                 String labelNew = "<span class=\\\"new-label\\\">NOVA</span>";
                 html.replaceAll(labelNew,"");
                 
-                int tamanho = html.length();
-                String idTitulo = "h3 class=\"text-24 line-height-30\">";
-                int posicaoInicial = html.indexOf(idTitulo);
-    			posicaoInicial += idTitulo.length();
-				html = html.substring(posicaoInicial,tamanho);
-				int posicaoFinal = html.indexOf("<//span><span><i class='far fa-chart-bar'>")
-				System.out.print(html);
         }
 
 
