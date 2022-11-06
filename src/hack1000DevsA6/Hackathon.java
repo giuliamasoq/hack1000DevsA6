@@ -39,21 +39,30 @@ public class Hackathon {
                 html.replaceAll(labelNew,"");
                 
 				posicaoInicial = 1;
-                while (posicaoInicial !=0) {
+                /*while (posicaoInicial !=0) {*/
                 	posicaoInicial = pegarInformacoes (html, posicaoInicial);
-                }
+                	html.substring(posicaoInicial);
+                /*}*/
         }
 
         public static int pegarInformacoes (String html, int posicaoInicial) {
-        	String idTitulo = "h3 class=\\\"text-24 line-height-30\\\">";
+        	String idTitulo = "<h3 class=\\\"text-24 line-height-30\\\">";
         	String idFimTitulo = "</h3>";
-        	html = html.substring(posicaoInicial);
+        	int posicaoFinal;
         	posicaoInicial = html.indexOf(idTitulo);
-        	posicaoFinal = html.in
-          	System.out.println("Titulo: " + ())
-        	
-			
-        	String Titulo = ;		
+        	posicaoFinal = html.indexOf(idFimTitulo);
+        	posicaoInicial += idTitulo.length()-1;
+          	System.out.println("Titulo: " + (html.substring(posicaoInicial,posicaoFinal)));
+          	
+          	String idEmpresa = "<i class='fa fa-briefcase'></i>";
+          	String idFimEmpresa = "</span><span><i class='fas fa-map-marker-alt'>";
+          	posicaoInicial = html.indexOf(idEmpresa);
+        	posicaoFinal = html.indexOf(idFimEmpresa);
+        	posicaoInicial += idEmpresa.length();
+          	System.out.println("Empresa: " + (html.substring(posicaoInicial,posicaoFinal)));
+          	
+          	
+          	
 			return posicaoFinal;
         }
 
