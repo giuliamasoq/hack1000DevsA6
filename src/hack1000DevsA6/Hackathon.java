@@ -32,10 +32,12 @@ public class Hackathon {
                 html.replaceAll(labelNew,"");
                 
                 int tamanho = html.length();
-                int posicaoInicial = indexOf("h3 class=\"text-24 line-height-30\">");     
-    			System.out.print(posicaoInicial);
-
-
+                String idTitulo = "h3 class=\"text-24 line-height-30\">";
+                int posicaoInicial = html.indexOf(idTitulo);
+    			posicaoInicial += idTitulo.length();
+				html = html.substring(posicaoInicial,tamanho);
+				int posicaoFinal = html.indexOf("<//span><span><i class='far fa-chart-bar'>")
+				System.out.print(html);
         }
 
 
