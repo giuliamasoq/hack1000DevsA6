@@ -31,14 +31,13 @@ public class Hackathon {
 				
                 String idTitulo = "<h3 class=\"text-24 line-height-30\">";
 				int posicaoInicial = html.indexOf(idTitulo);
-				int tamanho = html.length();
-				html = html.substring(posicaoInicial,tamanho);
+				html = html.substring(posicaoInicial);
 
-		       /* Para remover as etiquetas novas do código */
+		/* Para remover as etiquetas novas do código */
                 String labelNew = "<span class=\"new-label\">NOVA</span>";
-                html.replaceAll(labelNew,"");
-                
-				posicaoInicial = 1;
+                html=html.replaceAll(labelNew,"");
+
+		posicaoInicial = 0;
                 while (posicaoInicial >-1) {
                 	posicaoInicial = pegarInformacoes (html, posicaoInicial);
                 	html = html.substring(posicaoInicial);
@@ -56,11 +55,13 @@ public class Hackathon {
           	System.out.println("Titulo: " + (html.substring(posicaoInicial,posicaoFinal)));
           	
           	String idEmpresa = "<i class='fa fa-briefcase'></i>";
-          	String idFimEmpresa = "</span><span><i class='fas";
+          	String idFimEmpresa = "</span><span><i class='fas fa-map-marker-alt'></i>";
           	posicaoInicial = html.indexOf(idEmpresa);
         	posicaoFinal = html.indexOf(idFimEmpresa);
         	posicaoInicial += idEmpresa.length();
           	System.out.println("Empresa: " + (html.substring(posicaoInicial,posicaoFinal)));
+
+                posicaoFinal += idFimEmpresa.length();
           	
 			return posicaoFinal;
         }
