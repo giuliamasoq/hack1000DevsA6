@@ -39,13 +39,15 @@ public class Hackathon {
                 html.replaceAll(labelNew,"");
                 
 				posicaoInicial = 1;
-                /*while (posicaoInicial !=0) {*/
+                while (posicaoInicial >-1) {
                 	posicaoInicial = pegarInformacoes (html, posicaoInicial);
-                	html.substring(posicaoInicial);
-                /*}*/
+                	posicaoInicial = posicaoInicial - 
+                	html = html.substring(posicaoInicial);
+                }
         }
 
         public static int pegarInformacoes (String html, int posicaoInicial) {
+        	
         	String idTitulo = "<h3 class=\\\"text-24 line-height-30\\\">";
         	String idFimTitulo = "</h3>";
         	int posicaoFinal;
