@@ -15,7 +15,6 @@ public class webCrawler {
 /* Passa para a função acessar até 2 níveis (link do link) e um array list vazio*/
 /* commit teste*/
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String url = "https://www.vagas.com.br/vagas-de-desenvolvedor";
 		acessar(1, url, new ArrayList<String>());
 	}
