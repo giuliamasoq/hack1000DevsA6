@@ -11,9 +11,14 @@ public class Hackathon {
 
                 String link = "https://programathor.com.br/jobs";
                 boolean naoTemLink = false;
+                int page = 1;
                 while (naoTemLink==false) {
                         link = acessarPagina(link);
                         naoTemLink = link.equals("");
+                        if (naoTemLink == false) {
+                                page ++;
+                                link = "https://programathor.com.br/jobs/page/"+ page;
+                        }
                 }
         
         }
@@ -45,6 +50,15 @@ public class Hackathon {
                 String labelNew = "<span class=\"new-label\">NOVA</span>";
                 html=html.replaceAll(labelNew,"");
 
+                /*Reduz a html até a primeira vaga vencida se houver naquela página */
+                String idVagaVencida = "<div class=\"cell-list opacity-60p\">";
+                int posicaoVagaVencida = html.indexOf(idVagaVencida);
+                boolean temVencida = false;
+                if (posicaoVagaVencida!= -1) {
+                        html = html.substring(0, posicaoVagaVencida);
+                        temVencida = true;
+                } 
+
 		posicaoInicial = 0;
                 while (posicaoInicial !=-1) {
                 	posicaoInicial = pegarInformacoes (html, posicaoInicial);
@@ -52,10 +66,11 @@ public class Hackathon {
                 	html = html.substring(posicaoInicial);
                         }
                 }
-                boolean temVencida = false;
-                while (temVencida == false) {              
-                        
+
+                if (temVencida == false) {              
                         return link;
+                } else {
+                        return "";   
                 }
         }
 
@@ -104,10 +119,10 @@ public class Hackathon {
                 String idFimSalario = "</span><span><i class='far fa-chart-bar'>";
                 posicaoInicial = html.indexOf(idSalario);
                 posicaoFinal = html.indexOf(idFimSalario);
-                posicaoInicial += idSalario.length();
-                if (posicaoInicial>posicaoFinal) {
+                if (posicaoInicial==-1 || posicaoInicial > posicaoFinal) {
                         System.out.println("Salario: Não informado");
                 } else {
+                        posicaoInicial += idSalario.length();
                         System.out.println("Salario: " + (html.substring(posicaoInicial,posicaoFinal)));
                 }
 
