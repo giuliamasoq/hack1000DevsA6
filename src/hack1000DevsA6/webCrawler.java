@@ -11,7 +11,7 @@ import org.jsoup.Connection;
 
 public class webCrawler {
 	
-/* TESTESTESTESTENo main ele está indicando qual a url e pedindo para acessar*/
+/* TCOMENTARIO TESTE COMENTARIO TESTE 0202020No main ele está indicando qual a url e pedindo para acessar*/
 /* Passa para a função acessar até 2 níveis (link do link) e um array list vazio*/
 /* commit teste*/
 	public static void main(String[] args) {
